@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f8fb">
+    <title>Evidence pití a močení</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="section-label">Zdravotní deník</p>
+          <h1>Evidence pití a močení</h1>
+          <p class="intro">Rychlý denní záznam příjmu a výdeje tekutin. Data zůstávají v prohlížeči, export vytvoří pouze odkaz jen pro čtení s komprimovaným grafem.</p>
+        </div>
+        <div class="day-control">
+          <label for="dayInput">Den</label>
+          <input id="dayInput" type="date">
+        </div>
+      </section>
+
+      <section id="entryPanel" class="entry-grid" aria-label="Zadávání záznamů">
+        <div class="panel">
+          <h2>Vypil jsem</h2>
+          <div class="button-row">
+            <button class="action drink beer" data-kind="beer" type="button"><span></span>Pivo 0.5 l</button>
+            <button class="action drink water" data-kind="water" type="button"><span></span>Voda 0.5 l</button>
+            <button class="action drink coffee" data-kind="coffee" type="button"><span></span>Káva 30 ml</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Močil jsem</h2>
+          <div class="button-row">
+            <button class="action pee strong" data-kind="peeStrong" type="button"><span></span>Silné nutkání</button>
+            <button class="action pee weak" data-kind="peeWeak" type="button"><span></span>Slabé nutkání</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-panel">
+        <div class="chart-header">
+          <div>
+            <p class="section-label">Graf dne</p>
+            <h2 id="chartTitle">Příjem a výdej po hodinách</h2>
+          </div>
+          <div class="summary" id="summary"></div>
+        </div>
+        <div id="chart" class="chart" role="img" aria-label="Graf příjmu a výdeje"></div>
+        <div class="legend">
+          <span><i class="beer-dot"></i>Pivo</span>
+          <span><i class="water-dot"></i>Voda</span>
+          <span><i class="coffee-dot"></i>Káva</span>
+          <span><i class="strong-dot"></i>Silné nutkání</span>
+          <span><i class="weak-dot"></i>Slabé nutkání</span>
+        </div>
+      </section>
+
+      <section class="history-panel">
+        <div class="toolbar">
+          <h2>Záznamy</h2>
+          <div>
+            <button id="exportBtn" class="secondary" type="button">Export jen pro čtení</button>
+            <button id="clearBtn" class="danger" type="button">Smazat den</button>
+          </div>
+        </div>
+        <ol id="eventList" class="event-list"></ol>
+        <p id="shareLink" class="share-link" hidden></p>
+      </section>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
